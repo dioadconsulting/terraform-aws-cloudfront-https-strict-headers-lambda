@@ -27,6 +27,6 @@ EOF
 }
 
 resource "aws_iam_role_policy_attachment" "lambda_logs" {
-  role = aws_iam_role.strict_headers.name
+  role       = aws_iam_role.strict_headers.name
   policy_arn = aws_iam_policy.lambda_logging.arn
 }
