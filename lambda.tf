@@ -25,8 +25,8 @@ resource "aws_iam_role" "strict_headers" {
 
 resource "aws_lambda_function" "strict_headers" {
   filename      = data.archive_file.strict_headers.output_path
-  function_name = "${local.lambda_function_name}"
-  role          = "${aws_iam_role.strict_headers.arn}"
+  function_name = local.lambda_function_name
+  role          = aws_iam_role.strict_headers.arn
   handler       = "index.handler"
 
   # The filebase64sha256() function is available in Terraform 0.11.12 and later
@@ -34,7 +34,7 @@ resource "aws_lambda_function" "strict_headers" {
   # source_code_hash = "${base64sha256(file("lambda_function_payload.zip"))}"
   source_code_hash = data.archive_file.strict_headers.output_base64sha256
 
-  runtime = "nodejs12.x"
+  runtime = "nodejs10.x"
 
   publish = true
 }
