@@ -1,7 +1,7 @@
-variable suffix {
+variable "suffix" {
   default = ""
 }
 
-variable prefix {
+variable "prefix" {
   default = ""
 }
