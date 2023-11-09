@@ -34,7 +34,7 @@ resource "aws_lambda_function" "strict_headers" {
   # source_code_hash = "${base64sha256(file("lambda_function_payload.zip"))}"
   source_code_hash = data.archive_file.strict_headers.output_base64sha256
 
-  runtime = "nodejs10.x"
-
+  # runtime = "nodejs10.x"
+  runtime = "nodejs18.x"
   publish = true
 }
