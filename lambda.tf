@@ -37,4 +37,7 @@ resource "aws_lambda_function" "strict_headers" {
   # runtime = "nodejs10.x"
   runtime = "nodejs18.x"
   publish = true
+  tracing_config {
+    mode = "PassThrough"
+  }
 }
